@@ -5,7 +5,7 @@ angular.module('eliteApp', ['ionic'])
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                cordova.plugins.Keyboard.disableScroll(true);
+                //cordova.plugins.Keyboard.disableScroll(true);
             }
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
@@ -22,10 +22,28 @@ angular.module('eliteApp', ['ionic'])
                 templateUrl: 'app/home/home.html',
             })
 
+            .state('home.ligas', {
+                url: '/ligas',
+                views: {
+                    'tab-ligas': {
+                        templateUrl: 'app/home/ligas.html',
+                    }
+                }
+            })
+
+            .state('home.meustimes', {
+                url: '/meustimes',
+                views: {
+                    'tab-meustimes': {
+                        templateUrl: 'app/home/meustimes.html',
+                    }
+                }
+            })
+
             .state('app', {
                 url: '/app',
                 templateUrl: 'app/layout/menu-layout.html',
             })
         ;
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/home/ligas');
     });
